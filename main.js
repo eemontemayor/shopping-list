@@ -32,9 +32,10 @@ function returnAddItem(){
 
 function checkItem () {
     $("ul").on('click', "button.shopping-item-toggle", function(event){
-       const item = $(event.target).closest('li'); // why does  this not toggle the other classes in the li as well ?
-        $(item).toggleClass('shopping-item__checked'); // use second parameter for toggle class to check whether it has it or not
-        
+      //  const item = $(event.target).closest('li'); // why does  this not toggle the other classes in the li as well ?
+      //   $(item).toggleClass('shopping-item__checked'); // use second parameter for toggle class to check whether it has it or not
+        event.stopPropagation();
+        $(this).parent().siblings().toggleClass('shopping-item__checked');  
     });
 }
 
