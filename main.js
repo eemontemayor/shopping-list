@@ -17,9 +17,9 @@ function addItem(){
 
 
 function checkItem () {
-    $("ul").on('click', "button.shopping-item-toggle", function(event){
-       const item = $(event.target).closest('.shopping-item');
-        $('.shopping-item').toggleClass('shopping-item__checked');
+    $("li").on('click', "button.shopping-item-toggle", function(event){
+       const item = $(event.target).closest('li'); // seriously ?! I would have that this toggles the other buttons as well so i tried everything else!
+        $(item).toggleClass('shopping-item__checked');
     });
 }
 
