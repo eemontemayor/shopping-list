@@ -6,28 +6,33 @@
 // sdfsdfdsf
 //  .submit(), preventDefault(), toggleClass(), and closest().
 
+function makeHtml(e){
+    const results = `<li>
+    <span class="shopping-item">${e}</span>
+    <div class="shopping-item-controls">
+      <button class="shopping-item-toggle">
+        <span class="button-label">check</span>
+      </button>
+      <button class="shopping-item-delete">
+        <span class="button-label">delete</span>
+      </button>
+    </div>
+  </li>`;
+  return results;
+}
 
 
-// function returnAddItem(){
-//    $('.js-shopping-list-form').submit(event =>{
-//         event.preventDefault();
-//         const userTextEl = $(event.currentTarget).find('#shopping-list-entry');
-//         $("ul").append(
-//             '<li>
-//             <span class="shopping-item">+$(userTextEl)+</span>
-//             <div class="shopping-item-controls">
-//               <button class="shopping-item-toggle">
-//                 <span class="button-label">check</span>
-//               </button>
-//               <button class="shopping-item-delete">
-//                 <span class="button-label">delete</span>
-//               </button>
-//             </div>
-//           </li>'
-//         )
 
-//    }); 
-// }
+function returnAddItem(){
+   $('.js-shopping-list-form').submit(event =>{
+        event.preventDefault();
+        const userText = $(event.target).find('#shopping-list-entry');
+        const newItem = makeHtml(userText.val());
+        $("ul").append(newItem);
+   }
+   ); 
+}
+
 
 
 function checkItem () {
@@ -47,3 +52,4 @@ function removeItem(){
 
 $(removeItem);
 $(checkItem);
+$(returnAddItem);
